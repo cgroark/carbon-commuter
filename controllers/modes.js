@@ -7,9 +7,16 @@ var mapApi = process.env.MAPS_API;
 
 
 router.post("/", function(req,res){
-	var origin = req.body.start;
-	var endpoint = req.body.end;
+	var originCity = req.body.cityStart
+	var originReg = req.body.regStart
+	var originAdd = req.body.addStart
+	var endAdd = req.body.addEnd
+	var endCity = req.body.cityEnd
+	var endReg = req.body.regEnd
+	// var origin = req.body.start;
+	// var endpoint = req.body.end;
 	var mode = req.body.mode;
+	console.log("adddddressssse", originCity, originReg, originAdd, endAdd, endCity, endReg)
 	if(mode === "bus" || mode === "transitrail"){
 		var newMode = "transit";
 	}
@@ -20,7 +27,7 @@ router.post("/", function(req,res){
 		var newMode = mode
 	}
 	console.log('moooode', mode);
-	var mapData = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="+ origin +"&destinations="+ endpoint +"&mode="+ newMode +"&language=en-En&key="+ mapApi;
+	var mapData = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="+ originAdd + "+" + originCity + "+" + originReg +"&destinations="+ endAdd + "+" + endCity + "+" + endReg + "&mode="+ newMode +"&language=en-En&key="+ mapApi;
 	request(mapData, function(error, response, body){
 		var mapOutput = JSON.parse(body);
 		console.log("mapppp my outpuuuut", mapOutput)
