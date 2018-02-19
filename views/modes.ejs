@@ -2,13 +2,44 @@
 	<div class="text-center row form-group">
 		<div class="col-md-12">
 			<h1>Carbon results</h1>
-			<div><h3><%=map.status%></h3></div>
 			<div><h3>Origin: <%=map.origin_addresses%></h3></div>
 			<div><h3>Destination: <%=map.destination_addresses%></h3></div>
 			<div><h3>Mode of Travel: <%=modecurrent%></h3></div>
-			<div><h3>Mode of Travel: <%=modecurrent%></h3></div>
-			<div><h3>Distance: <%=map.rows[0].elements[0].distance.value%></h3></div>
-
-		</div>
+			<div><h3>Estimated Travel Time: <%=map.rows[0].elements[0].duration.text%></h3></div>
+			<div><h3>Distance: <%=Math.round(map.rows[0].elements[0].distance.value /1000 * 0.621371)%> miles</h3></div>
+			<div>
+				<%var distance = map.rows[0].elements[0].distance.value / 1000 * 0.621371%>
+				<%console.log("distannnnnnce", distance)%>
+				<%if(modecurrent === "bicycling") { %>
+					<%var carbon = distance * 0 %>
+					<h3>Carbon: <%=carbon%></h3></div>
+				<% } else if(modecurrent === "walking") { %>
+					<%var carbon = distance * 0 %>
+					<h3>Carbon: <%=carbon%></h3></div>
+				<% } else if(modecurrent === "driving") { %>
+					<%var carbon = Math.round(distance * 0.355) %>
+					<h3>Carbon: <%=carbon%> kg of CO<sub>2</sub></h3></div>
+				<% } else if(modecurrent === "bus") { %>
+					<%var carbon = Math.round(distance * 0.055) %>
+					<h3>Carbon: <%=carbon%> kg of CO<sub>2</sub></h3></div>
+				<% } else if(modecurrent === "transitrail") { %>
+					<%var carbon = Math.round(distance * 0.120) %>
+					<h3>Carbon: <%=carbon %> kg of CO<sub>2</sub></h3></div>
+				<% } else if(modecurrent === "motorcycle") { %>
+					<%var carbon = Math.round(distance * 0.191) %>
+					<h3>Carbon: <%=carbon%> kg of CO<sub>2</sub></h3></div>
+				<% } %>
+			</div>
+			<form method="POST" action="/trips">
+				<% if(currentUser) { %>
+					<input hidden type="text" name="userId" value="<%= currentUser.id %>">
+         			<input hidden type="text" name="mode" value="<%= modecurrent %>">
+         			<input hidden type="text" name="distance" value="<%= distance %>">
+         			<input hidden type="text" name="carbon" value="<%= carbon%>">
+          			<button id="save_button" type="submit">Add to Trips</button>
+          		<% } else { %>
+          			<button id="save_button" type="submit">Login to add to Wishlist</button>
+				<% } %>
+    		</form>
 	</div>
 </div>

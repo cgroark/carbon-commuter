@@ -8,12 +8,19 @@ var mapApi = process.env.MAPS_API;
 
 router.post("/", function(req,res){
 	var origin = req.body.start;
-	console.log('staaaart###', origin);
 	var endpoint = req.body.end;
-	console.log('eeeennnnd###', endpoint);
 	var mode = req.body.mode;
+	if(mode === "bus" || mode === "transitrail"){
+		var newMode = "transit";
+	}
+	else if(mode === "motorcylce"){
+		var newMode = "driving";
+	}
+	else if(mode === "bicycling" || mode === "walking" || mode === "driving"){
+		var newMode = mode
+	}
 	console.log('moooode', mode);
-	var mapData = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="+ origin +"&destinations="+ endpoint +"&mode="+ mode +"&language=en-En&key="+ mapApi;
+	var mapData = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="+ origin +"&destinations="+ endpoint +"&mode="+ newMode +"&language=en-En&key="+ mapApi;
 	request(mapData, function(error, response, body){
 		var mapOutput = JSON.parse(body);
 		console.log("mapppp my outpuuuut", mapOutput)

@@ -48,3 +48,7 @@ footer {
 	color: #F15B31;
 	font-weight: 1000;
 }
+sub{
+	vertical-align: sub;
+    font-size: smaller;
+}

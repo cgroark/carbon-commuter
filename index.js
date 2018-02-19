@@ -40,6 +40,8 @@ app.get("/profile", isLoggedIn, function(req, res){
 //controllers
 app.use("/modes", require("./controllers/modes"));
 app.use("/auth", require("./controllers/auth"));
+app.use("/trips", require("./controllers/trips"));
+
 
 
 
