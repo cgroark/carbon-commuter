@@ -8,7 +8,7 @@
 			<div><h3>Estimated Travel Time: <%=map.rows[0].elements[0].duration.text%></h3></div>
 			<div><h3>Distance: <%=(map.rows[0].elements[0].distance.value /1000 * 0.621371).toFixed(2)%> miles</h3></div>
 			<div>
-				<%var distance = map.rows[0].elements[0].distance.value / 1000 * 0.621371%>
+				<%var distance = (map.rows[0].elements[0].distance.value / 1000 * 0.621371).toFixed(2)%>
 				<%console.log("distannnnnnce", distance)%>
 				<%if(modecurrent === "bicycling") { %>
 					<%var carbon = distance * 0 %>

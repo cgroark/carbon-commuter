@@ -1,7 +1,5 @@
 <h1 class="col-md-12">This is the trips page</h1>
 <div class="col-md-12"><h3><%= currentUser.firstname %>'s Commutes</h3></div>
-<h3>Carbon: <%= user.modes[2].mode %></h3>
-<%console.log('trips, usertest##########',user.modes[3])%>
 
 <% if(user.modes.length <= 0) {%>
 	<h2> You haven't added any trips yet</h2>
@@ -11,8 +9,8 @@
 		<tr>
 			<th scope="col">Date</th>
 			<th scope="col">Mode</th>
-			<th scope="col">Distance</th>
-			<th scope="col">kg of CO<sub>2</sub></th>
+			<th scope="col">Distance (miles)</th>
+			<th scope="col">Carbon (kg of CO<sub>2</sub>)</th>
 			<th scope="col">Remove Trip</th> 
 		</tr>
 	</thead>
@@ -23,7 +21,7 @@
 			<td><%=trip.mode%></td>
 			<td><%=trip.distance%></td>
 			<td><%=trip.carbon%></td>
-			<td><a href="#"<%= %>" id="delete_button" class="delete-link">X</a></td>
+			<td><a href="/trips/<%= trip.id %>"<%= %>" id="delete_button" class="delete-link">X</a></td>
 		</tr>
 		<%})%>
 	</tbody>

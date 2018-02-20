@@ -15,7 +15,7 @@ router.get("/", isLoggedIn, function(req, res) {
     });
 });
 
-//add favorite parks to db for specific user
+//add trips to db for specific user
 router.post("/", isLoggedIn, function(req, res) {
 	db.modes.create({
             userId: req.user.id,
@@ -30,15 +30,15 @@ router.post("/", isLoggedIn, function(req, res) {
 	});
 });
 
-//delete route to remove favorited parks
+//delete route
 
-// router.delete("/:id", function(req, res){
-//     db.nationalpark.destroy({
-//         where: {id: req.params.id}
-//     }).then(function(deleted){
-//         console.log("delete=", deleted);
-//         res.send("success");
-//     });
-// })
+router.delete("/:id", function(req, res){
+    db.modes.destroy({
+        where: {id: req.params.id}
+    }).then(function(deleted){
+        console.log("delete=", deleted);
+        res.send("success");
+    });
+})
 
 module.exports = router;
