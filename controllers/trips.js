@@ -11,7 +11,7 @@ router.get("/", isLoggedIn, function(req, res) {
     	where: {id: req.user.id},
     	include: [db.modes]
     }).then(function(alltrips){
-    	res.render("trips", {trips: alltrips});
+    	res.render("trips", {user: alltrips});
     });
 });
 
