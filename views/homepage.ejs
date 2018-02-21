@@ -11,35 +11,40 @@
 		<form method="post" action="/modes">
 			<h3>Mode of Transportation?</h3>
 			<div class="form-group">
-				<select name="mode">
+				<select name="mode" required>
 				  <option value="" selected="selected">Select</option>
 				  <option value="bicycling">Cycling</option>
 				  <option value="walking">Walking</option>
 				  <option value="driving">Driving</option>
+				  <option value="truck">Light-Duty Truck</option>
 				  <option value="motorcycle">Motorcycle</option>
 				  <option value="transitrail">Transit Rail</option>
 				  <option value="bus">Bus</option>
 				</select>
+			</div>
+			<div class="form-group">
+				<label class="control-label">Commute Date</label>
+				<input id="date" name="date" type="date" class="form-control" required>
 			</div>
 			<h3>Starting Point</h3>
 			<div class="form-group">
 		        <label class="control-label">Street Address</label>
 		        <div class="controls">
 		            <input id="address-line1" name="addStart" type="text" placeholder="address line 1"
-		            class="form-control">
+		            class="form-control" required>
 		        </div>
 		    </div>
 		    <div class="form-group">
 		        <label class="control-label">City / Town</label>
 		        <div class="controls">
-		            <input id="city" name="cityStart" type="text" placeholder="city" class="form-control">
+		            <input id="city" name="cityStart" type="text" placeholder="city" class="form-control" required>
 		        </div>
 		    </div>
 		    <div class="form-group">
 		        <label class="control-label">State / Province / Region</label>
 		        <div class="controls">
 		           <select id="region" name="regStart" type="text" placeholder="state / province"
-		            class="form-control">
+		            class="form-control" required>
 		                <option value="" selected="selected">Select a State</option>
 						<option value="AL">Alabama</option>
 						<option value="AK">Alaska</option>
@@ -112,20 +117,20 @@
 		        <label class="control-label">Street Address</label>
 		        <div class="controls">
 		            <input id="address-line1" name="addEnd" type="text" placeholder="address line 1"
-		            class="form-control">
+		            class="form-control" required>
 		        </div>
 		    </div>
 		    <div class="form-group">
 		        <label class="control-label">City / Town</label>
 		        <div class="controls">
-		            <input id="city" name="cityEnd" type="text" placeholder="city" class="form-control">
+		            <input id="city" name="cityEnd" type="text" placeholder="city" class="form-control" required>
 		        </div>
 		    </div>
 		    <div class="form-group">
 		        <label class="control-label">State / Province / Region</label>
 		        <div class="controls">
 		           <select id="region" name="regEnd" type="text" placeholder="state / province"
-		            class="form-control">
+		            class="form-control" required>
 		                <option value="" selected="selected">Select a State</option>
 						<option value="AL">Alabama</option>
 						<option value="AK">Alaska</option>
@@ -194,7 +199,6 @@
 		        </div>
 		    </div>
 
-			
 			<input type="submit" value="Submit" class="btn btn-success">
 		</form>
 </div>

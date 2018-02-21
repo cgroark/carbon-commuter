@@ -4,6 +4,7 @@
 			<h1>Carbon results</h1>
 			<div><h3>Origin: <%=map.origin_addresses%></h3></div>
 			<div><h3>Destination: <%=map.destination_addresses%></h3></div>
+			<div><h3>Date of travel:<%=date%>
 			<div><h3>Mode of Travel: <%=modecurrent%></h3></div>
 			<div><h3>Estimated Travel Time: <%=map.rows[0].elements[0].duration.text%></h3></div>
 			<div><h3>Distance: <%=(map.rows[0].elements[0].distance.value /1000 * 0.621371).toFixed(2)%> miles</h3></div>
@@ -34,6 +35,7 @@
 				<% if(currentUser) { %>
 					<input hidden type="text" name="userId" value="<%= currentUser.id %>">
          			<input hidden type="text" name="mode" value="<%= modecurrent %>">
+         			<input hidden type="text" name="date" value="<%= date %>">
          			<input hidden type="text" name="distance" value="<%= distance %>">
          			<input hidden type="text" name="carbon" value="<%= carbon%>">
           			<button id="save_button" type="submit">Add to Trips</button>

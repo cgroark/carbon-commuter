@@ -16,6 +16,7 @@ router.post("/", function(req,res){
 	// var origin = req.body.start;
 	// var endpoint = req.body.end;
 	var mode = req.body.mode;
+	var date = req.body.date;
 	console.log("adddddressssse", originCity, originReg, originAdd, endAdd, endCity, endReg)
 	if(mode === "bus" || mode === "transitrail"){
 		var newMode = "transit";
@@ -31,7 +32,8 @@ router.post("/", function(req,res){
 	request(mapData, function(error, response, body){
 		var mapOutput = JSON.parse(body);
 		console.log("mapppp my outpuuuut", mapOutput)
-		res.render("modes", {map: mapOutput, modecurrent: mode})
+		console.log("daaaaaaate#####", date)
+		res.render("modes", {map: mapOutput, modecurrent: mode, date: date})
 	});	
 });
 

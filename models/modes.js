@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     mode: DataTypes.STRING,
     distance: DataTypes.STRING,
     carbon: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    date: DataTypes.STRING
   });
   modes.associate = function(models){
         models.modes.belongsTo(models.users);// associations can be defined here

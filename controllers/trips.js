@@ -21,7 +21,8 @@ router.post("/", isLoggedIn, function(req, res) {
             userId: req.user.id,
             mode: req.body.mode,
             distance: req.body.distance,
-            carbon: req.body.carbon
+            carbon: req.body.carbon,
+            date: req.body.date
     }).then(function(newTrip){
             res.redirect("/trips")
     }).catch(function(err){

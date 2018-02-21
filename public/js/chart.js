@@ -1,28 +1,20 @@
-
-console.log("chaaartdata#####",chartData.modes)
+console.log(chartData.modes)
 var ctx = document.getElementById("myChart");
-var label = ["Driving", "Bus", "Cycling", "Walking", "Transit Rail", "Motorcycle"];
+var label = ["driving", "bus", "bicycling", "walking", "transitrail", "motorcycle", "truck"];
 var distance = [];
 
-function labelData(){
-	chartData.modes.map(function(item){
-		label.push(item.mode)
-		console.log("labbbbbbbbbel array", label)
-	})
-	
+function getTotal(data, label){
+	for(var i=0; i<=label.length; i++){
+		var total=0;
+		data.forEach(function(item){
+			if(item.mode == label[i]){
+				total = total + Number(item.distance);
+			}
+		})
+	distance.push(total)
+	}
+	return distance
 }
-function distanceData(){
-	var totalDistance = chartData.modes.reduce(function(total, item){
-		if(item.mode === "driving"){
-			return total + item.distance
-		}else{
-			return total;
-		}
-
-	},0);
-	distance[0] = parseFloat(totalDistance).toFixed(3)
-}
-
 
 var myChart = new Chart(ctx, {
     type: 'doughnut',
@@ -32,18 +24,25 @@ var myChart = new Chart(ctx, {
             label: 'Carbon Emissions',
             data: distance,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
+            	'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)'
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(130,130,130,0.2)'
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
+                'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(130,130,130, 1)'
             ],
         }]
     },
 });
 
-labelData();
-distanceData();
+getTotal(chartData.modes,label);
