@@ -1,13 +1,36 @@
 
 console.log("chaaartdata#####",chartData.modes)
 var ctx = document.getElementById("myChart");
+var label = ["Driving", "Bus", "Cycling", "Walking", "Transit Rail", "Motorcycle"];
+var distance = [];
+
+function labelData(){
+	chartData.modes.map(function(item){
+		label.push(item.mode)
+		console.log("labbbbbbbbbel array", label)
+	})
+	
+}
+function distanceData(){
+	var totalDistance = chartData.modes.reduce(function(total, item){
+		if(item.mode === "driving"){
+			return total + item.distance
+		}else{
+			return total;
+		}
+
+	},0);
+	distance[0] = parseFloat(totalDistance).toFixed(3)
+}
+
+
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'doughnut',
     data: {
-        labels: [chartData.modes[0].mode, chartData.modes[1].mode, chartData.modes[2].mode],
+        labels: label,
         datasets: [{
             label: 'Carbon Emissions',
-            data: [chartData.modes[0].carbon, chartData.modes[1].carbon, chartData.modes[2].carbon],
+            data: distance,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -18,16 +41,9 @@ var myChart = new Chart(ctx, {
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)'
             ],
-            borderWidth: 1
         }]
     },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
 });
+
+labelData();
+distanceData();
