@@ -1,5 +1,4 @@
-console.log(chartData.modes)
-var ctx = document.getElementById("myChart");
+var ctx = document.getElementById("dough_chart");
 var label = ["driving", "bus", "bicycling", "walking", "transitrail", "motorcycle", "truck"];
 var distance = [];
 
