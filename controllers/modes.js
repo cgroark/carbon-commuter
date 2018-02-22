@@ -17,7 +17,6 @@ router.post("/", function(req,res){
 	// var endpoint = req.body.end;
 	var mode = req.body.mode;
 	var date = req.body.date;
-	console.log("adddddressssse", originCity, originReg, originAdd, endAdd, endCity, endReg)
 	if(mode === "bus" || mode === "transitrail"){
 		var newMode = "transit";
 	}
@@ -27,12 +26,9 @@ router.post("/", function(req,res){
 	else if(mode === "bicycling" || mode === "walking" || mode === "driving"){
 		var newMode = mode
 	}
-	console.log('moooode', mode);
 	var mapData = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="+ originAdd + "+" + originCity + "+" + originReg +"&destinations="+ endAdd + "+" + endCity + "+" + endReg + "&mode="+ newMode +"&language=en-En&key="+ mapApi;
 	request(mapData, function(error, response, body){
 		var mapOutput = JSON.parse(body);
-		console.log("mapppp my outpuuuut", mapOutput)
-		console.log("daaaaaaate#####", date)
 		res.render("modes", {map: mapOutput, modecurrent: mode, date: date})
 	});	
 });

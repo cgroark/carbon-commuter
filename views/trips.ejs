@@ -4,32 +4,37 @@
 <% if(user.modes.length <= 0) {%>
 	<h2> You haven't added any trips yet</h2>
 <%}%>
-<canvas id="area_chart"></canvas>
 
-<table class="table">
-	<thead>
-		<tr>
-			<th scope="col">Date</th>
-			<th scope="col">Mode</th>
-			<th scope="col">Distance (miles)</th>
-			<th scope="col">Carbon (kg of CO<sub>2</sub>)</th>
-			<th scope="col">Remove Trip</th> 
-		</tr>
-	</thead>
-	<tbody>
-		<%user.modes.map(function(trip) {%>
-		<tr>
-			<td><%=trip.date%></td>
-			<td><%=trip.mode%></td>
-			<td><%=trip.distance%></td>
-			<td><%=trip.carbon%></td>
-			<td><a href="/trips/<%= trip.id %>"<%= %>" id="delete_button" class="delete-link">X</a></td>
-		</tr>
-		<%})%>
-	</tbody>
-</table>
-
-<canvas id="dough_chart"></canvas>
+<div class="row form-group">
+	<div class="col-lg-6"><canvas id="dough_chart"></canvas></div>
+	<div class="col-lg-5">
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Date</th>
+				<th scope="col">Mode</th>
+				<th scope="col">Distance (miles)</th>
+				<th scope="col">Carbon (kg of CO<sub>2</sub>)</th>
+				<th scope="col">Remove Trip</th> 
+			</tr>
+		</thead>
+		<tbody>
+			<%user.modes.map(function(trip) {%>
+			<tr>
+				<td><%=trip.date%></td>
+				<td><%=trip.mode%></td>
+				<td><%=trip.distance%></td>
+				<td><%=trip.carbon%></td>
+				<td><a href="/trips/<%= trip.id %>"<%= %>" id="delete_button" class="delete-link">X</a></td>
+			</tr>
+			<%})%>
+		</tbody>
+	</table>
+	</div>
+</div>
+<div class="row form-group">
+	<div class="col-lg-8 col-lg-offset-2"><canvas id="area_chart"></canvas></div>
+</div>
 
 
 <script type="text/javascript"> var chartData = <%-JSON.stringify(user)%></script>

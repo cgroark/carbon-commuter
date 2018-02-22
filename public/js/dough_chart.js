@@ -12,36 +12,38 @@ function getTotal(data, label){
 		})
 	distance.push(total)
 	}
-	return distance
+	createDough();
 }
 
-var myChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-        labels: label,
-        datasets: [{
-            label: 'Carbon Emissions',
-            data: distance,
-            backgroundColor: [
-            	'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(130,130,130,0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(130,130,130, 1)'
-            ],
-        }]
-    },
-});
+function createDough(){
+	var myChart = new Chart(ctx, {
+	    type: 'doughnut',
+	    data: {
+	        labels: label,
+	        datasets: [{
+	            label: 'Carbon Emissions',
+	            data: distance,
+	            backgroundColor: [
+	            	'rgba(154,147,236,.2)', 
+	                'rgba(101,168,196,.2)',
+	                'rgba(0,197,144,.2)',
+	                'rgba(115,235,174,.2)',
+	                'rgba(65,179,247,.2)',
+	                'rgba(0,82,165,.2)',
+	                'rgba(0,173,206,.2)'
+	            ],
+	            borderColor: [
+	                'rgba(154,147,236,1)',
+	                'rgba(101,168,196,1)',
+	                'rgba(0,197,144,1)',
+	                'rgba(115,235,174,1)',
+	                'rgba(65,179,247,1)',
+	                'rgba(0,82,165,1)',
+	                'rgba(0,173,206,1)'
+	            ],
+	        }]
+	    },
+	});
+}
 
 getTotal(chartData.modes,label);
