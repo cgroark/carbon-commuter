@@ -36,6 +36,9 @@ canvas{
 /*	height: 500px;
 */	width: 700px;
 }
+#avgChart{
+	margin-top: -40px;
+}
 /*//footer// 
 */
 h1{
@@ -53,6 +56,12 @@ p{
 #search_button{
 	margin: 5px auto;
 	font-size: 30px;
+}
+#search_button:hover{
+	margin: 5px auto;
+	font-size: 30px;
+	text-decoration: underline;
+	color: rgb(0,173,206);
 }
 #button_div{
 	text-align: center;
