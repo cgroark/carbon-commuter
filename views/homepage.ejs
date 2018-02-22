@@ -10,7 +10,7 @@
 	<div class="col-md-5 col-md-offset-1">
 	<h3>Track a Trip</h3>
 	<div class="info_text"><p>Carbon Commute lets you see average carbon dioxide emissions per trip traveled based on mode of transport. Simply select transportation mode and trip origin and destination points. Save your trips to track distance and carbon footprint data to date</p></div>
-	<div id="button_div"><input id="search_button" type="button" value="Start Tracking" class="btn" onclick="showForm()"></div>	
+	<div class="button_div"><input id="search_button" type="button" value="Start Tracking" class="btn" onclick="showForm()"></div>	
 	</div>
 	<div class="col-md-5">
 		<h3>Understand your impact</h3>
@@ -21,7 +21,7 @@
 	<div class="col-md-5 col-md-offset-1">
 		<form method="post" action="/modes" class="animated fadeInUp" id="search_form">
 			<div class="form-group">
-			<p>Select a travel mode and start and end points to track  your miles and carbon footprint</p>
+			<p class="info_text">Select a travel mode and start and end points to track  your miles and carbon footprint</p>
 			<div class="row form-group">
 				<div class="col-md-6">
 				<label class="control-label">Mode of Transport</label>
@@ -227,12 +227,13 @@
 		    </div>
 			</div>
 		</div>
-			<input type="submit" value="Submit" class="btn">
+			<div class="button_div"><input id="submit_button" type="submit" value="Submit" class="btn"></div>
 		</form>
 	</div>
 </div>
 <div class="col-md-5">
 	<canvas id="avgChart" width="400" height="400"></canvas>
+	<p class="label_div">Kilograms of Carbon Dioxide</p>
 </div>
 </div>
 

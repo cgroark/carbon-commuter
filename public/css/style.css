@@ -58,13 +58,25 @@ p{
 	font-size: 30px;
 }
 #search_button:hover{
-	margin: 5px auto;
-	font-size: 30px;
 	text-decoration: underline;
 	color: rgb(0,173,206);
 }
-#button_div{
+.button_div{
 	text-align: center;
+}
+.label_div{
+	margin-left: 50%;
+}
+#submit_button{
+	margin: 5px auto;
+	font-size: 20px;
+}
+#submit_button:hover{
+	text-decoration: underline;
+	color: rgb(0,173,206);
+}
+.trip_data{
+	font-size: 20px;
 }
 
 .clearfix:after {
@@ -92,17 +104,14 @@ footer {
 	font-weight: 900;
 }
 .copyright {
-	font-family: 'Poiret One', cursive;
+	font-family: 'Raleway', sans-serif;
 	float: left;
 }
 .message {
-	font-family: 'Poiret One', cursive;
+	font-family: 'Raleway', sans-serif;
 	float: right;
 }
-.name {
-	color: #F15B31;
-	font-weight: 1000;
-}
+
 sub{
 	vertical-align: sub;
     font-size: smaller;

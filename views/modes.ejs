@@ -9,41 +9,41 @@
 <div class="row form-group">
 	<div class="col-md-5 col-md-offset-1">
 	<h3>Trip Stats</h3>		
+	<div class="info_text"><p>Details for your trip by <%=modecurrent%></p></div>
 	</div>
 	<div class="col-md-5">
-		<h3>Understand your impact</h3>
-		<div class="info_text"><p>Burning fossil fues via combustion produces CO<sub>2</sub>, one of the primary greenhouse gases that contributes to the "Greenhouse Effect". Data below from the Environmental Protection Agency provides a snapshot of CO<sub>2</sub> emissions per mile based on mode of transportation. </p></div>
+		<h3>Carbon Comparison</h3>
+		<div class="info_text"><p>Compare carbon emissions for selected travel mode with other options</p></div>
 	</div>
 </div>
 <div class="row form-group">
-	<div class="col-md-5 col-md-offset-1">
+	<div class="col-md-5 col-md-offset-1 trip_data">
 		<%var distance = (map.rows[0].elements[0].distance.value / 1000 * 0.621371).toFixed(2)%>
 		<%if(modecurrent === "bicycling") { %>
 			<%var carbon = distance * 0 %>
-			<p>CO<sub>2</sub> Emissions: <%=carbon%></p>
+			<p>CO<sub>2</sub> Emissions: <%=carbon%> kg</p>
 		<% } else if(modecurrent === "walking") { %>
 			<%var carbon = distance * 0%>
-			<p>Carbon: <%=carbon%></p>
+			<p>CO<sub>2</sub> Emissions: <%=carbon%> kg</p>
 		<% } else if(modecurrent === "truck") { %>
 			<%var carbon = (distance * 0.485).toFixed(2) %>
-			<p>Carbon: <%=carbon%></p>
+			<p>CO<sub>2</sub> Emissions: <%=carbon%> kg</p>
 		<% } else if(modecurrent === "driving") { %>
 			<%var carbon = (distance * 0.355).toFixed(2) %>
-			<p>Carbon: <%=carbon%> kg of CO<sub>2</sub></p>
+			<p>CO<sub>2</sub> Emissions: <%=carbon%> kg></p>
 		<% } else if(modecurrent === "bus") { %>
 			<%var carbon = (distance * 0.055).toFixed(2) %>
-			<p>Carbon: <%=carbon%> kg of CO<sub>2</sub></p>
+			<p>CO<sub>2</sub> Emissions:  <%=carbon%> kg</p>
 		<% } else if(modecurrent === "transitrail") { %>
 			<%var carbon = (distance * 0.120).toFixed(2) %>
-			<h3>Carbon: <%=carbon %> kg of CO<sub>2</sub></h3>
+			<p>CO<sub>2</sub> Emissions:  <%=carbon %> kg</p>
 		<% } else if(modecurrent === "motorcycle") { %>
 			<%var carbon = (distance * 0.191).toFixed(2) %>
-			<p>Carbon: <%=carbon%> kg of CO<sub>2</sub></p>
+			<p>CO<sub>2</sub> Emissions:  <%=carbon%> kg</p>
 			<%console.log("caaaarbon", carbon)%>
 		<% } %>
 		<p>Estimated Travel Time: <%=map.rows[0].elements[0].duration.text%></p>
 		<p>Distance: <%=(map.rows[0].elements[0].distance.value /1000 * 0.621371).toFixed(2)%> miles</p>
-		<p>Mode of Travel: <%=modecurrent%></p>
 		<p>Origin: <%=map.origin_addresses%></p>
 		<p>Destination: <%=map.destination_addresses%></p>
 		
@@ -54,15 +54,16 @@
      			<input hidden type="text" name="date" value="<%= date %>">
      			<input hidden type="text" name="distance" value="<%= distance %>">
      			<input hidden type="text" name="carbon" value="<%= carbon%>">
-      			<button id="save_button" type="submit">Add to Trips</button>
+      			<div class="button_div"><button id="save_button" type="submit">Add to Trips</button></div>
       		<% } else { %>
-      			<button id="save_button" type="submit">Login to add to Trips</button>
+      			<div><button id="save_button" type="submit">Login to add to Trips</button></div>
 			<% } %>
 		</form>
 	</div>
 
 	<div class="col-md-5">
-		<canvas id="compareChart" width="400" height="400"></canvas>
+		<h2>chart here</h2>
+		<canvas id="compare_chart" width="400" height="400"></canvas>
 	</div>
 </div>
 
@@ -72,8 +73,9 @@
 
 </div>
 
-<script src="js/average_chart.js"></script>
-<script src="js/script.js"></script>
+<script type="text/javascript"> var compData = <%-JSON.stringify(map)%></script>
+<script type="text/javascript" src="js/compare_chart.js"></script>
+
 
 
 
