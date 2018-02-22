@@ -5,7 +5,7 @@ var avgChart = new Chart(ctx, {
     data: {
         labels: ["Passenger Car", "Light-Duty Truck", "Motorcycle", "Transit Rail", "Bus", "Cycling", "Walking"],
         datasets: [{
-            label: 'kg of Carbon Dioxide per mile traveled',
+            label: 'Kg of Carbon Dioxide per mile traveled',
             data: [0.355, 0.485, 0.191, 0.120, 0.055, 0, 0],
             backgroundColor: [
                 'rgba(154,147,236,.2)',
