@@ -1,14 +1,26 @@
 var ctx = document.getElementById("compare_chart");
+console.log("mmoooooooooode", mode)
 var distance = Number(compData.rows[0].elements[0].distance.value / 1000 * 0.621371).toFixed(2)
+var mode = mode
 
-var compChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ["Car", "Light-Duty Truck", "Motorcycle", "Transit Rail", "Bus", "Cycling", "Walking"],
-        datasets: [{
-            label: 'Kg of Carbon Dioxide based on current distance',
-            data: [distance * 0.355, distance * 0.485, distance * 0.191, distance * 0.120, distance * 0.055, 0, 0],
-            backgroundColor: [
+var options = [{
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'probability'
+          }
+        }],
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'hola'
+          }
+        }],
+      }
+    }]
+
+var colors = [
                 'rgba(154,147,236,.2)',
                 'rgba(0,173,206,.2)',
                 'rgba(0,82,165,.2)',
@@ -16,7 +28,35 @@ var compChart = new Chart(ctx, {
                 'rgba(101,168,196,.2',
                 'rgba(0,197,144,.2)',
                 'rgba(115,235,174,.2)'
-            ],
+            ]
+
+var labels = ["Car", "Light-Duty Truck", "Motorcycle", "Transit Rail", "Bus", "Cycling", "Walking"]
+
+console.log(mode)
+function alterColors(mode,colors,labels){
+    for(var i = 0; i < labels.length; i++){
+          var str = labels[i]
+            if((str.toLowerCase()).includes(mode)){
+              console.log('test')
+                colors[i] = colors[i].replace(',.2)', ',8)')
+                console.log(colors[i])
+            }
+        }
+        return colors;
+}
+
+var colors2 = alterColors(mode,colors,labels);
+console.log('colors2', colors2)
+
+
+var compChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Kg of Carbon Dioxide based on current distance',
+            data: [distance * 0.355, distance * 0.485, distance * 0.191, distance * 0.120, distance * 0.055, 0, 0],
+            backgroundColor: colors2,
             borderColor: [
                 'rgba(154,147,236,1)',
                 'rgba(0,173,206,1)',
@@ -29,13 +69,5 @@ var compChart = new Chart(ctx, {
             borderWidth: 1
         }]
     },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
+    options: options
 });

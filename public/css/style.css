@@ -16,6 +16,14 @@
 	position: relative;
 	top: -10px;
 	width: auto;
+	margin-right: 10px;
+}
+h4.black_text {
+	font-family: 'Raleway', sans-serif;
+	font-size: 22px;
+	font-weight: 500;
+	color: rgb(30,30,30);	
+	text-align: center;
 }
 /*page format
 */
@@ -24,6 +32,10 @@
 	background-size: cover;
 	height: 100%;
 	margin-top: -20px;
+}
+.body-section{
+	background-color: white;
+	height: 40vh;
 }
 .top-row{
 	margin-top: 60px;
@@ -48,8 +60,17 @@ canvas{
 */
 h1{
 	font-family: 'Poppins', sans-serif;
-	font-size: 78px;
-	color: white;
+	font-size: 84px;
+	color: black;
+}
+h2{
+	font-family: 'Poppins', sans-serif;
+	color: black;
+	font-size: 54px;
+	font-weight: 800;
+	margin-bottom: 30px;
+	text-transform: capitalize;
+	text-align: center;
 }
 p{
 	font-family: 'Raleway', sans-serif;
@@ -100,7 +121,7 @@ p{
 	font-size: 22px;
 	font-weight: 900;
 	margin-bottom: 10px;
-	color: rgb(0,82,165);
+	color: #674075;
 }
 .datarow{
 	margin-bottom: 24px;
@@ -132,13 +153,47 @@ p{
 	height: 0;
 	font-size: 0;
 }
+.auth_submit{
+	font-family: 'Raleway', sans-serif;
+	color: black;
+	margin-bottom: 15px;
+	font-size: 18px;
+	background-color: inherit;
+	border: none;
+	margin: auto;
+	display: block;
+}
+.auth_submit:hover{
+	color: white;
+	text-decoration: underline;
+}
+.auth_format{
+	font-family: 'Raleway', sans-serif;
+	background-color: transparent;
+	padding: 15px 15px;
+	color: rgb(195,195,195);	
+}
+.auth-input{
+	font-family: 'Raleway', sans-serif;
+	background-color: transparent;
+	font-size: 14px;
+	color: white;
+	letter-spacing: 2px;	
+}
+.signin-form{
+	font-family: 'Raleway', sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	color: black;	
+}
 footer {
 	text-transform: uppercase;
 	padding: 5px 20px;
-	background-color: rgba(30,30,30,.4);
+	background-color: rgb(10,10,10);
 	font-size: 14px;
 	letter-spacing: .09em;
 	font-weight: 900;
+	color: white;
 }
 .copyright {
 	font-family: 'Raleway', sans-serif;
