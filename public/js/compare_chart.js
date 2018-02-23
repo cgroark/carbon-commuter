@@ -4,7 +4,7 @@ var distance = Number(compData.rows[0].elements[0].distance.value / 1000 * 0.621
 var compChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Passenger Car", "Light-Duty Truck", "Motorcycle", "Transit Rail", "Bus", "Cycling", "Walking"],
+        labels: ["Car", "Light-Duty Truck", "Motorcycle", "Transit Rail", "Bus", "Cycling", "Walking"],
         datasets: [{
             label: 'Kg of Carbon Dioxide based on current distance',
             data: [distance * 0.355, distance * 0.485, distance * 0.191, distance * 0.120, distance * 0.055, 0, 0],

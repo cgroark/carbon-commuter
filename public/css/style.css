@@ -18,7 +18,8 @@
 	width: auto;
 }
 /*page format
-*/.background{
+*/
+.background{
 	background-image: url("/images/back.jpg");
 	background-size: cover;
 	height: 100%;
@@ -28,7 +29,11 @@
 	margin-top: 60px;
 }
 .info_text{
-	font-size: 18px;
+	font-size: 20px;
+}
+.area_text{
+	font-size: 20px;
+	margin-bottom: 25px;
 }
 /*charts
 */
@@ -61,6 +66,14 @@ p{
 	text-decoration: underline;
 	color: rgb(0,173,206);
 }
+.save_button{
+	margin: 15px auto;
+	font-size: 20px;
+}
+.save_button:hover{
+	text-decoration: underline;
+	color: rgb(0,173,206);
+}
 .button_div{
 	text-align: center;
 }
@@ -78,7 +91,31 @@ p{
 .trip_data{
 	font-size: 20px;
 }
+.value{
+	font-family: 'Raleway', sans-serif;
+	font-size: 22px;
+}
+.key{
+	font-family: 'Raleway', sans-serif;
+	font-size: 22px;
+	font-weight: 900;
+	margin-bottom: 10px;
+	color: rgb(0,82,165);
+}
+.datarow{
+	margin-bottom: 24px;
+}
+.trips_header{
+	margin-bottom: 25px;
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
 
+}
+.table_class{
+	height: 400px;
+	overflow: scroll;
+	text-align: center;
+}
 .clearfix:after {
 	visibility: hidden;
 	display: block;

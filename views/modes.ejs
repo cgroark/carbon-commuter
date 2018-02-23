@@ -6,46 +6,46 @@
 		</div>
 	</div>
 </div>
-<div class="row form-group">
+<div class="row form-group top-row">
 	<div class="col-md-5 col-md-offset-1">
 	<h3>Trip Stats</h3>		
-	<div class="info_text"><p>Details for your trip by <%=modecurrent%></p></div>
+	<div class="info_text"><p>Details for your submitted trip by <%=modecurrent%>:</p></div>
 	</div>
 	<div class="col-md-5">
 		<h3>Carbon Comparison</h3>
-		<div class="info_text"><p>Compare carbon emissions for selected travel mode with other options</p></div>
+		<div class="info_text"><p>Compare carbon emissions for <%=modecurrent%> with other options</p></div>
 	</div>
 </div>
 <div class="row form-group">
 	<div class="col-md-5 col-md-offset-1 trip_data">
 		<%var distance = (map.rows[0].elements[0].distance.value / 1000 * 0.621371).toFixed(2)%>
+		<div class="datarow"><span class="key">CO<sub>2</sub> Emissions: </span>
 		<%if(modecurrent === "bicycling") { %>
 			<%var carbon = distance * 0 %>
-			<p>CO<sub>2</sub> Emissions: <%=carbon%> kg</p>
+			<span class="value"><%=carbon%> kg</span></div>
 		<% } else if(modecurrent === "walking") { %>
 			<%var carbon = distance * 0%>
-			<p>CO<sub>2</sub> Emissions: <%=carbon%> kg</p>
+			<span class="value"><%=carbon%> kg</span></div>
 		<% } else if(modecurrent === "truck") { %>
 			<%var carbon = (distance * 0.485).toFixed(2) %>
-			<p>CO<sub>2</sub> Emissions: <%=carbon%> kg</p>
+			<span class="value"><%=carbon%> kg</span></div>
 		<% } else if(modecurrent === "driving") { %>
 			<%var carbon = (distance * 0.355).toFixed(2) %>
-			<p>CO<sub>2</sub> Emissions: <%=carbon%> kg></p>
+			<span class="value"><%=carbon%> kg</span></div>
 		<% } else if(modecurrent === "bus") { %>
 			<%var carbon = (distance * 0.055).toFixed(2) %>
-			<p>CO<sub>2</sub> Emissions:  <%=carbon%> kg</p>
+			<span class="value"><%=carbon%> kg</span></div>
 		<% } else if(modecurrent === "transitrail") { %>
 			<%var carbon = (distance * 0.120).toFixed(2) %>
-			<p>CO<sub>2</sub> Emissions:  <%=carbon %> kg</p>
+			<span class="value"><%=carbon%> kg</span></div>
 		<% } else if(modecurrent === "motorcycle") { %>
 			<%var carbon = (distance * 0.191).toFixed(2) %>
-			<p>CO<sub>2</sub> Emissions:  <%=carbon%> kg</p>
-			<%console.log("caaaarbon", carbon)%>
+			<span class="value"><%=carbon%> kg</span></div>
 		<% } %>
-		<p>Estimated Travel Time: <%=map.rows[0].elements[0].duration.text%></p>
-		<p>Distance: <%=(map.rows[0].elements[0].distance.value /1000 * 0.621371).toFixed(2)%> miles</p>
-		<p>Origin: <%=map.origin_addresses%></p>
-		<p>Destination: <%=map.destination_addresses%></p>
+		<div class="datarow"><span class="key">Estimated Travel Time: </span><span class="value"><%=map.rows[0].elements[0].duration.text%></span><br></div>
+		<div class="datarow"><span class="key">Distance: </span><span class="value"><%=(map.rows[0].elements[0].distance.value /1000 * 0.621371).toFixed(2)%> miles</span></div>
+		<div class="datarow"><span class="key">Origin: </span><span class="value"><%=map.origin_addresses%></span></div>
+		<div class="datarow"><span class="key">Destination: </span><span class="value"><%=map.destination_addresses%></span></div>
 		
 		<form method="POST" action="/trips">
 			<% if(currentUser) { %>
@@ -54,15 +54,14 @@
      			<input hidden type="text" name="date" value="<%= date %>">
      			<input hidden type="text" name="distance" value="<%= distance %>">
      			<input hidden type="text" name="carbon" value="<%= carbon%>">
-      			<div class="button_div"><button id="save_button" type="submit">Add to Trips</button></div>
+      			<div class="button_div"><input class="btn save_button" type="submit" value="Add to Trips"></div>
       		<% } else { %>
-      			<div><button id="save_button" type="submit">Login to add to Trips</button></div>
+      			<div class="button_div"><input class="btn save_button" type="submit" value="Login to Add to Trips"></input></div>
 			<% } %>
 		</form>
 	</div>
 
 	<div class="col-md-5">
-		<h2>chart here</h2>
 		<canvas id="compare_chart" width="400" height="400"></canvas>
 	</div>
 </div>

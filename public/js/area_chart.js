@@ -8,6 +8,7 @@ var bus = []
 var transit = []
 var drive = []
 var motorcycle = []
+var truck = []
 
 
 function getActual(xDate){
@@ -29,6 +30,7 @@ function getOther(xDate){
 		var totalCycle = 0;
 		var totalDrive = 0;
 		var totalMoto = 0;
+		var totalTruck = 0;
 		chartData.modes.forEach(function(item){
 			if(item.date == xDate[i]){
 				totalBus = totalBus  + Number((item.distance * 0.055));
@@ -36,6 +38,7 @@ function getOther(xDate){
 				totalCycle = totalCycle + Number((item.distance * 0));
 				totalDrive = totalDrive + Number((item.distance * 0.355)) 
 				totalMoto = totalMoto + Number((item.distance * 0.191))
+				totalTruck = totalTruck + Number((item.distance * 0.485))
 			}
 		})
 		bus.push(totalBus)
@@ -43,6 +46,7 @@ function getOther(xDate){
 		cycle.push(totalCycle)
 		drive.push(totalDrive)
 		motorcycle.push(totalMoto)
+		truck.push(totalTruck)
 	}
 	console.log("function fiiiiire");
 	createChart();
@@ -67,9 +71,9 @@ function createChart(){
 	    datasets: [{
 	      label: "Actual",
 	      fill: true,
-	      backgroundColor: 'rgba(0,65,89,.2)',
+	      backgroundColor: 'rgba(0,65,89,.5)',
 	      pointBackgroundColor: 'rgba(0,65,89,1)',
-	      borderColor: 'rgba(0,65,89,1)',
+	      borderColor: 'black',
 	      pointHighlightStroke: 'rgba(0,65,89,1)',
 	      borderCapStyle: 'butt',
 	      data: actual,
@@ -93,7 +97,7 @@ function createChart(){
 	      borderCapStyle: 'butt',
 	      data: bus,
 	    }, {
-	      label: "Passenger Car",
+	      label: "Car",
 	      fill: true,
 	      backgroundColor: 'rgba(154,147,236,.2)',
 	      pointBackgroundColor: 'rgba(154,147,236,1)',
@@ -108,7 +112,15 @@ function createChart(){
 	      borderColor: 'rgba(0,82,165,1)',
 	      pointHighlightStroke: 'rgba(0,82,165,1)',
 	      data: motorcycle,
-	    }, ]
+	    }, {
+	      label: "Truck",
+	      fill: true,
+	      backgroundColor: 'rgba(0,173,206,.2)',
+	      pointBackgroundColor: 'rgba(0,173,206,1)',
+	      borderColor: 'rgba(0,173,206,1)',
+	      pointHighlightStroke: 'rgba(0,173,206,1)',
+	      data: truck,
+	    },]
 	  },
 	  options: {
 	    responsive: true,
