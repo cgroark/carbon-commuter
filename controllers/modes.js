@@ -13,22 +13,24 @@ router.post("/", function(req,res){
 	var endAdd = req.body.addEnd
 	var endCity = req.body.cityEnd
 	var endReg = req.body.regEnd
-	// var origin = req.body.start;
-	// var endpoint = req.body.end;
 	var mode = req.body.mode;
 	var date = req.body.date;
-	if(mode === "bus" || mode === "transitrail"){
+	if(mode === "Bus" || mode === "Transit Rail"){
 		var newMode = "transit";
 	}
-	else if(mode === "motorcylce"){
+	else if(mode === "Motorcycle" || mode === "Car" || mode === "Light-Duty Truck"){
 		var newMode = "driving";
 	}
-	else if(mode === "bicycling" || mode === "walking" || mode === "driving"){
-		var newMode = mode
+	else if(mode === "Bicycle"){
+		var newMode = "bicycling";
+	}
+	else if(mode === "Walking"){
+		var newMode = "walking";
 	}
 	var mapData = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="+ originAdd + "+" + originCity + "+" + originReg +"&destinations="+ endAdd + "+" + endCity + "+" + endReg + "&mode="+ newMode +"&language=en-En&key="+ mapApi;
 	request(mapData, function(error, response, body){
 		var mapOutput = JSON.parse(body);
+		console.log("status######", mapOutput.rows[0].elements[0].status);
 		res.render("modes", {map: mapOutput, modecurrent: mode, date: date})
 	});	
 });

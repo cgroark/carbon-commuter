@@ -3,7 +3,7 @@ var ctx = document.getElementById("avgChart");
 var avgChart = new Chart(ctx, {
     type: 'horizontalBar',
     data: {
-        labels: ["Car", "Light-Duty Truck", "Motorcycle", "Transit Rail", "Bus", "Cycling", "Walking"],
+        labels: ["Car", "Light-Duty Truck", "Motorcycle", "Transit Rail", "Bus", "Bicycle", "Walking"],
         datasets: [{
             label: 'Kg of Carbon Dioxide per mile traveled',
             data: [0.355, 0.485, 0.191, 0.120, 0.055, 0, 0],

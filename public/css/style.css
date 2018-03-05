@@ -78,14 +78,35 @@ p{
 
 #search_form{
 	display: none;
+	background-color: #9CBDB0;
+	padding: 20px;
+	margin-top: -80px;
 }
 #search_button{
+	border: solid black;
+	font-family: 'Poppins', sans-serif;
+	color: white;
+	background-color: #41687B;
+	border-radius: 5px;
 	margin: 5px auto;
-	font-size: 30px;
+	font-size: 24px;
 }
 #search_button:hover{
-	text-decoration: underline;
-	color: rgb(0,173,206);
+	background-color: white;
+	color: #41687B;
+}
+#submit_button{
+	border: solid black;
+	font-family: 'Poppins', sans-serif;
+	background-color: white;
+	color: #41687B;
+	border-radius: 5px;
+	margin: 5px auto;
+	font-size: 24px;
+}
+#submit_button:hover{
+	background-color: black;
+	color: white;
 }
 .save_button{
 	margin: 15px auto;
@@ -100,14 +121,6 @@ p{
 }
 .label_div{
 	margin-left: 50%;
-}
-#submit_button{
-	margin: 5px auto;
-	font-size: 20px;
-}
-#submit_button:hover{
-	text-decoration: underline;
-	color: rgb(0,173,206);
 }
 .trip_data{
 	font-size: 20px;
@@ -202,6 +215,10 @@ footer {
 .message {
 	font-family: 'Raleway', sans-serif;
 	float: right;
+}
+.name {
+	font-family: 'Raleway', sans-serif;
+	color:	#9CBDB0;
 }
 
 sub{

@@ -6,10 +6,16 @@
 		</div>
 	</div>
 </div>
+
 <div class="row form-group top-row">
+	<% if(map.rows[0].elements[0].status == "ZERO_RESULTS"){%>
+	<h3 class="error_text">No results found for that route</h3>
+	<div id="search_again"><a class="h4-link" href="/">Search Again</a>
+	</div>
+<%} else{ %>
 	<div class="col-md-5 col-md-offset-1">
-	<h3>Trip Stats</h3>		
-	<div class="info_text"><p>Details for your submitted trip by <%=modecurrent%>:</p></div>
+		<h3>Trip Stats</h3>		
+		<div class="info_text"><p>Details for your submitted trip by <%=modecurrent%>:</p></div>
 	</div>
 	<div class="col-md-5">
 		<h3>Carbon Comparison</h3>
@@ -20,25 +26,25 @@
 	<div class="col-md-5 col-md-offset-1 trip_data">
 		<%var distance = (map.rows[0].elements[0].distance.value / 1000 * 0.621371).toFixed(2)%>
 		<div class="datarow"><span class="key">CO<sub>2</sub> Emissions: </span>
-		<%if(modecurrent === "bicycling") { %>
+		<%if(modecurrent === "Bicycle") { %>
 			<%var carbon = distance * 0 %>
 			<span class="value"><%=carbon%> kg</span></div>
-		<% } else if(modecurrent === "walking") { %>
+		<% } else if(modecurrent === "Walking") { %>
 			<%var carbon = distance * 0%>
 			<span class="value"><%=carbon%> kg</span></div>
-		<% } else if(modecurrent === "truck") { %>
+		<% } else if(modecurrent === "Light-Duty Truck") { %>
 			<%var carbon = (distance * 0.485).toFixed(2) %>
 			<span class="value"><%=carbon%> kg</span></div>
-		<% } else if(modecurrent === "driving") { %>
+		<% } else if(modecurrent === "Car") { %>
 			<%var carbon = (distance * 0.355).toFixed(2) %>
 			<span class="value"><%=carbon%> kg</span></div>
-		<% } else if(modecurrent === "bus") { %>
+		<% } else if(modecurrent === "Bus") { %>
 			<%var carbon = (distance * 0.055).toFixed(2) %>
 			<span class="value"><%=carbon%> kg</span></div>
-		<% } else if(modecurrent === "transitrail") { %>
+		<% } else if(modecurrent === "Transit Rail") { %>
 			<%var carbon = (distance * 0.120).toFixed(2) %>
 			<span class="value"><%=carbon%> kg</span></div>
-		<% } else if(modecurrent === "motorcycle") { %>
+		<% } else if(modecurrent === "Motorcycle") { %>
 			<%var carbon = (distance * 0.191).toFixed(2) %>
 			<span class="value"><%=carbon%> kg</span></div>
 		<% } %>
@@ -62,7 +68,7 @@
 	</div>
 
 	<div class="col-md-5">
-		<canvas id="compare_chart" width="400" height="400"></canvas>
+		<canvas id="compare_chart"></canvas>
 	</div>
 </div>
 
@@ -71,6 +77,7 @@
 <div id="search_result">
 
 </div>
+<%}%>
 
 <script type="text/javascript"> 
 	var compData = <%-JSON.stringify(map)%> 

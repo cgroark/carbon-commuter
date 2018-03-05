@@ -1,5 +1,4 @@
 var ctx = document.getElementById("compare_chart");
-console.log("mmoooooooooode", mode)
 var distance = Number(compData.rows[0].elements[0].distance.value / 1000 * 0.621371).toFixed(2)
 var mode = mode
 
@@ -25,29 +24,24 @@ var colors = [
                 'rgba(0,173,206,.2)',
                 'rgba(0,82,165,.2)',
                 'rgba(65,179,247,.2)',
-                'rgba(101,168,196,.2',
+                'rgba(101,168,196,.2)',
                 'rgba(0,197,144,.2)',
                 'rgba(115,235,174,.2)'
             ]
 
-var labels = ["Car", "Light-Duty Truck", "Motorcycle", "Transit Rail", "Bus", "Cycling", "Walking"]
+var labels = ["Car", "Light-Duty Truck", "Motorcycle", "Transit Rail", "Bus", "Bicycle", "Walking"]
 
-console.log(mode)
 function alterColors(mode,colors,labels){
     for(var i = 0; i < labels.length; i++){
           var str = labels[i]
-            if((str.toLowerCase()).includes(mode)){
-              console.log('test')
+            if(str == mode){
                 colors[i] = colors[i].replace(',.2)', ',8)')
-                console.log(colors[i])
             }
         }
         return colors;
 }
 
 var colors2 = alterColors(mode,colors,labels);
-console.log('colors2', colors2)
-
 
 var compChart = new Chart(ctx, {
     type: 'bar',
