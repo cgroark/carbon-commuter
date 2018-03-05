@@ -1,5 +1,5 @@
 var ctx = document.getElementById("dough_chart");
-var label = ["driving", "bus", "bicycling", "walking", "transitrail", "motorcycle", "truck"];
+var label = ["Car", "Bus", "Bicycle", "Walking", "Transit Rail", "Motorcycle", "Light-Duty Truck"];
 var distance = [];
 
 function getTotal(data, label){

@@ -54,7 +54,7 @@ canvas{
 */	width: 700px;
 }
 #avgChart{
-	margin-top: -40px;
+	margin-top: 0px;
 }
 /*//footer// 
 */
@@ -72,6 +72,13 @@ h2{
 	text-transform: capitalize;
 	text-align: center;
 }
+h3{
+	font-family: 'Poppins', sans-serif;
+	color: black;
+	font-size: 36px;
+	font-weight: 800;
+	margin-bottom: 18px;
+}
 p{
 	font-family: 'Raleway', sans-serif;
 }
@@ -80,21 +87,40 @@ p{
 	display: none;
 	background-color: #9CBDB0;
 	padding: 20px;
-	margin-top: -80px;
+	margin-top: -60px;
 }
-#search_button{
+.search_button{
 	border: solid black;
 	font-family: 'Poppins', sans-serif;
 	color: white;
 	background-color: #41687B;
 	border-radius: 5px;
 	margin: 5px auto;
+	padding: 5px 12px;
 	font-size: 24px;
 }
-#search_button:hover{
+.search_button:hover{
 	background-color: white;
 	color: #41687B;
+	text-decoration: none;
 }
+.error_button{
+	border: solid black;
+	font-family: 'Poppins', sans-serif;
+	color: white;
+	background-color: #41687B;
+	border-radius: 5px;
+	margin: 5px auto;
+	padding: 5px 12px;
+	font-size: 24px;
+	width: 200px;
+}
+.error_button:hover{
+	background-color: white;
+	color: #41687B;
+	text-decoration: none !important;
+}
+
 #submit_button{
 	border: solid black;
 	font-family: 'Poppins', sans-serif;
@@ -102,19 +128,33 @@ p{
 	color: #41687B;
 	border-radius: 5px;
 	margin: 5px auto;
-	font-size: 24px;
+	font-size: 18px;
 }
+
 #submit_button:hover{
 	background-color: black;
 	color: white;
 }
 .save_button{
-	margin: 15px auto;
-	font-size: 20px;
+	border: solid black;
+	font-family: 'Poppins', sans-serif;
+	color: white;
+	background-color: #41687B;
+	border-radius: 5px;
+	margin: 5px auto;
+	padding: 5px 12px;
+	font-size: 24px;
+	width: 200px;
 }
 .save_button:hover{
-	text-decoration: underline;
-	color: rgb(0,173,206);
+	background-color: white;
+	color: #41687B;
+	text-decoration: none !important;
+}
+
+.error-div{
+	text-align: center;
+	height: 60vh;
 }
 .button_div{
 	text-align: center;

@@ -1,4 +1,3 @@
-console.log("#######", chartData.modes);
 var ctx = document.getElementById("area_chart");
 
 var xDate = []
@@ -24,6 +23,7 @@ function getActual(xDate){
 	return total
 }
 function getOther(xDate){
+	console.log("dddddddaaaaate###", xDate)
 	for(var i=0; i<xDate.length; i++){
 		var totalBus = 0;
 		var totalTransit = 0;
@@ -48,7 +48,6 @@ function getOther(xDate){
 		motorcycle.push(totalMoto)
 		truck.push(totalTruck)
 	}
-	console.log("function fiiiiire");
 	createChart();
 }
 
@@ -58,6 +57,7 @@ function getDate(){
 			xDate.push(item.date);
 		}	
 	})
+	xDate.sort();
 	getActual(xDate);
 	getOther(xDate);
 }
@@ -79,7 +79,7 @@ function createChart(){
 	      data: actual,
 
 	    }, {
-	      label: "Cycling/Walking",
+	      label: "Bicycle/Walking",
 	      fill: true,
 	      backgroundColor: 'rgba(0,197,144,.2)',
 	      pointBackgroundColor: 'rgba(0,197,144,1)',
