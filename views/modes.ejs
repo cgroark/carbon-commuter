@@ -1,8 +1,7 @@
 <div class="background">
 	<div class="text-center row form-group">
 		<div class="col-md-12">
-			<h1>Carbon Commute</h1>
-			<h3>Track Your Trips. See Your Carbon Footprint</h3>
+			<h1>Trip Stats</h1>
 		</div>
 	</div>
 </div>
@@ -23,8 +22,7 @@
 <%} else{ %>
 	<div class="row form-group top-row">
 		<div class="col-md-5 col-md-offset-1 col-sm-8 col-sm-offset-2">
-			<h3>Trip Stats</h3>		
-			<div class="info_text"><p>Details for your submitted trip by <%=modecurrent%>:</p></div>
+			<div class="info_text"><h3>Details for your submitted trip by <%=modecurrent%>:</h3></div>
 				<div class="trip_data">
 				<%var distance = (map.rows[0].elements[0].distance.value / 1000 * 0.621371).toFixed(2)%>
 					<div class="datarow"><span class="key">CO<sub>2</sub> Emissions: </span>
@@ -63,7 +61,7 @@
 		     			<input hidden type="text" name="carbon" value="<%= carbon%>">
 		      			<div class="button_div"><input class="btn save_button" type="submit" value="Add to Trips"></div>
 		      		<% } else { %>
-		      			<div class="button_div"><input class="btn save_button" type="submit" value="Login to Add to Trips"></input></div>
+		      			<div class="button_div"><input class="btn save_button_not" type="submit" value="Login to Add to Trips"></input></div>
 					<% } %>
 				</form>
 			</div>

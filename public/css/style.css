@@ -7,9 +7,12 @@
 #navbar_text:hover{
 	color: rgb(247, 147, 42);
 }
+
+.navbar-collapse{
+	background-color: white;
+}
 .navbar{
 	background-color: white;
-	height: 42px;
 }
 #logo{
 	height: 40px;
@@ -38,7 +41,7 @@ h4.black_text {
 	height: 40vh;
 }
 .top-row{
-	margin-top: 60px;
+	margin-top: 40px;
 }
 .info_text{
 	font-size: 20px;
@@ -66,16 +69,16 @@ h1{
 h2{
 	font-family: 'Poppins', sans-serif;
 	color: black;
-	font-size: 54px;
+	font-size: 36px;
 	font-weight: 800;
-	margin-bottom: 30px;
+	margin-bottom: 26px;
 	text-transform: capitalize;
 	text-align: center;
 }
 h3{
 	font-family: 'Poppins', sans-serif;
 	color: black;
-	font-size: 36px;
+	font-size: 28px;
 	font-weight: 800;
 	margin-bottom: 18px;
 }
@@ -143,10 +146,26 @@ p{
 	border-radius: 5px;
 	margin: 5px auto;
 	padding: 5px 12px;
-	font-size: 24px;
-	width: 200px;
+	font-size: 18px;
+	width: 180px;
 }
 .save_button:hover{
+	background-color: white;
+	color: #41687B;
+	text-decoration: none !important;
+}
+.save_button_not{
+	border: solid black;
+	font-family: 'Poppins', sans-serif;
+	color: white;
+	background-color: #41687B;
+	border-radius: 5px;
+	margin: 5px auto;
+	padding: 5px 12px;
+	font-size: 18px;
+	width: 220px;
+}
+.save_button_not:hover{
 	background-color: white;
 	color: #41687B;
 	text-decoration: none !important;
@@ -167,11 +186,11 @@ p{
 }
 .value{
 	font-family: 'Raleway', sans-serif;
-	font-size: 22px;
+	font-size: 18px;
 }
 .key{
 	font-family: 'Raleway', sans-serif;
-	font-size: 22px;
+	font-size: 18px;
 	font-weight: 900;
 	margin-bottom: 10px;
 	color: #674075;
@@ -207,23 +226,24 @@ p{
 	font-size: 0;
 }
 .auth_submit{
-	font-family: 'Raleway', sans-serif;
-	color: black;
-	margin-bottom: 15px;
-	font-size: 18px;
-	background-color: inherit;
-	border: none;
-	margin: auto;
-	display: block;
-}
-.auth_submit:hover{
+	border: solid black;
+	font-family: 'Poppins', sans-serif;
 	color: white;
-	text-decoration: underline;
+	background-color: black;
+	border-radius: 5px;
+	margin: 5px auto;
+	padding: 1px 12px;
+	font-size: 12px;
+	width: 80px;
+}
+
+.auth_submit:hover{
+	background-color: white;
+	color: black;
 }
 .auth_format{
 	font-family: 'Raleway', sans-serif;
 	background-color: transparent;
-	padding: 15px 15px;
 	color: rgb(195,195,195);	
 }
 .auth-input{
@@ -265,3 +285,66 @@ sub{
 	vertical-align: sub;
     font-size: smaller;
 }
+@media(max-width: 992px){
+	h1{
+		font-size: 34px;
+	}
+	h2{
+		font-size: 16px;
+	}
+	h3{
+		font-size: 18px;
+		text-align: center;
+	}
+	#compare_text{
+		font-size: 14px;
+	}
+	footer{
+		font-size: 10px;
+		padding: 8px 20px;
+	}
+	th{
+		font-size: 10px;
+	}
+	.key{
+		font-size: 14px;
+	}
+	.value{
+		font-size: 14px;
+	}
+	.datarow{
+		margin-bottom: 0;
+	}
+	.info_text{
+		font-size: 14px
+	}
+	.top-row{
+	margin: 15px;
+	}
+	.second-row{
+		margin: 15px;
+	}	
+	.label_div{
+		font-size: 10px;
+	}
+	#avgChart{
+		font-size: 10px;
+	}
+	.search_button{
+		font-size: 14px;
+
+	}
+	.save_button{
+		font-size: 14px;
+	}
+	.auth_format{
+		margin: 0 30px;
+	}
+	.signin-form{
+		font-size: 14px;
+	}
+	.login_header{
+		font-size: 22px;
+	}
+}
+
